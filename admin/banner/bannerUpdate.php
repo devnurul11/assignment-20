@@ -88,7 +88,7 @@
 								?>
 									<div class="alert alert-success no-border">
 										<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
-										<span class="text-semibold">Well done!</span> <?php echo $_GET['mag']; ?> <a href="#" class="alert-link">this important</a> alert message.
+										<span class="text-semibold"></span> <?php echo $_GET['mag']; ?> <a href="#" class="alert-link">this important</a> alert message.
 									</div>
 								<?php } ?>
 								<fieldset class="content-group">
@@ -98,7 +98,7 @@
 
 								
 									?>
-									<input type="hidden" class="form-control" id="title" name="title" value="<?php echo $banner['id']?>">
+									<input type="hidden" class="form-control" id="title" name="banner_id" value="<?php echo $banner['id']?>">
 									<div class="form-group">
 										<label class="control-label col-lg-3" for="title">Banner Title</label>
 										<div class="col-lg-9">

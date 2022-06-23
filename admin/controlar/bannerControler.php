@@ -38,12 +38,12 @@ if (isset($_POST['updateBanner'])) {
     if (empty($title) || empty($sub_title) || empty($details)) {
         echo "all Fields are requered";
     }else{
-        $updatQry = "UPDATE banners SET title ='{$title}', sub_title= '{$sub_title}',details = '{$details}' WHERE id = '$banner_id'";
+        $updatQry = "UPDATE banners SET title ='{$title}', sub_title= '{$sub_title}',details = '{$details}' WHERE id = '{$banner_id}'";
         
 
         $isUpdate = mysqli_query($dbcon, $updatQry);
 
-        if ($isUpdate) {
+        if ($isUpdate == true) {
         $message = "Update Successfully";
         }else{
         $message = "database error";
@@ -51,5 +51,5 @@ if (isset($_POST['updateBanner'])) {
 
        
     }
-    header("location:../banner/bannerAdd.php?mag={$message}");
+    header("location:../banner/bannerUpdate.php?mag={$message}&banner_id='{$banner_id}'");
 }

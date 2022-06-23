@@ -2,20 +2,20 @@
 <html lang="en">
 
 
-	<?php
-	if (basename(__DIR__) != 'admin') {
-		$baseUrl = '../';
-		$isInternalUrl = true;
-	} else {
-		$baseUrl = '';
-		$isInternalUrl = false;
-	}
+<?php
+if (basename(__DIR__) != 'admin') {
+	$baseUrl = '../';
+	$isInternalUrl = true;
+} else {
+	$baseUrl = '';
+	$isInternalUrl = false;
+}
 
 
-	include '../includes/head.php';
-	require '../controlar/dbconfig.php'
+include '../includes/head.php';
+require '../controlar/dbconfig.php'
 
-	?>
+?>
 
 
 
@@ -77,7 +77,15 @@
 								</ul>
 							</div>
 						</div>
+						<?php
+								if (isset($_GET['mag'])) {
 
+								?>
+									<div class="alert alert-success no-border">
+										<button type="button" class="close" data-dismiss="alert"><span>×</span><span class="sr-only">Close</span></button>
+										<span class="text-semibold"></span> <?php echo $_GET['mag']; ?> <a href="#" class="alert-link">this important</a> alert message.
+									</div>
+								<?php } ?>
 
 						<table class="table table-bordered datatable-basic">
 							<thead>
@@ -93,27 +101,27 @@
 							<tbody>
 								<?php
 
-								$selectQry = "SELECT * From banners where active_status = 1" ;
+								$selectQry = "SELECT * From banners where active_status = 1";
 								$bannerList = mysqli_query($dbcon, $selectQry);
 
 								foreach ($bannerList as $key => $banner) {
-									
-						
+
+
 								?>
 
-								<tr>
-									<td><?php echo ++$key ;?></td>
-									<td><?php echo $banner['title'];?></td>
-									<td><?php echo $banner['sub_title'];?></td>
-									<td><?php echo $banner['details'];?></td>
-									<td><?php echo $banner['Image'];?></td>
-									<td class="text-center">
-										<a href="bannerUpdate.php?banner_id=<?php echo $banner['id'];?>" class="dropdown-toggle"><i class=" icon-pencil7"></i> </a>
-										<a href="#" class="dropdown-toggle"><i class="  icon-trash"></i> </a>
-									</td>
-								</tr>
+									<tr>
+										<td><?php echo ++$key; ?></td>
+										<td><?php echo $banner['title']; ?></td>
+										<td><?php echo $banner['sub_title']; ?></td>
+										<td><?php echo $banner['details']; ?></td>
+										<td><?php echo $banner['Image']; ?></td>
+										<td class="text-center">
+											<a href="bannerUpdate.php?banner_id=<?php echo $banner['id']; ?>" class="dropdown-toggle"><i class=" icon-pencil7"></i> </a>
+											<a href="bannerdelete.php?banner_id=<?php echo $banner['id']; ?>" class="dropdown-toggle"><i class="  icon-trash"></i> </a>
+										</td>
+									</tr>
 
-								<?php }?>
+								<?php } ?>
 							</tbody>
 						</table>
 					</div>
