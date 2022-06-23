@@ -49,6 +49,7 @@ if (isset($_POST['updateBanner'])) {
         $message = "database error";
         }
 
-        header("location:../banner/bannerAdd.php?mag={$message}");
+       
     }
+    header("location:../banner/bannerAdd.php?mag={$message}");
 }

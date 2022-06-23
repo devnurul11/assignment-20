@@ -98,7 +98,7 @@
 
 								
 									?>
-									<input type="text" class="form-control" id="title" name="title" value="<?php echo $banner['id']?>">
+									<input type="hidden" class="form-control" id="title" name="title" value="<?php echo $banner['id']?>">
 									<div class="form-group">
 										<label class="control-label col-lg-3" for="title">Banner Title</label>
 										<div class="col-lg-9">
